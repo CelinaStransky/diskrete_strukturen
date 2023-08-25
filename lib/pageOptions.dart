@@ -5,3 +5,9 @@ Widget Mengen() {
     child: Text('Mengen'),
   );
 }
+
+Widget Funktionen() {
+  return Container(
+    child: Text('Funktionen'),
+  );
+}
