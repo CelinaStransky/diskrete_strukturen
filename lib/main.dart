@@ -79,9 +79,6 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: SingleChildScrollView(child: pageOptions[selectedIndex]),
-      
-      
-
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
