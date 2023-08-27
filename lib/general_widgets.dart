@@ -40,6 +40,7 @@ Widget PText(String text) {
     padding: EdgeInsets.only(left : 5, right: 5, bottom: 5),
     child: Text(
       text,
+      softWrap: true,
       style: TextStyle(fontSize: 18),
     ),
   );
@@ -47,10 +48,10 @@ Widget PText(String text) {
 
 Widget PMath(String text) {
   return Padding(
-    padding: EdgeInsets.only(left : 10, right: 10, bottom: 5),
+    padding: EdgeInsets.only(left : 10, bottom: 10),
     child: Math.tex(
       text,
-      textStyle: TextStyle(fontSize: 20),
+      textStyle: TextStyle(fontSize: 18,),
     ),
   );
 }
