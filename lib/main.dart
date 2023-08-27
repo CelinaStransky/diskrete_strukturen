@@ -44,7 +44,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   // current selected Index
-  int selectedIndex = 0;
+  int selectedIndex = 1;
 
   // update current Selected Index
   void onItemTapped(index) {
