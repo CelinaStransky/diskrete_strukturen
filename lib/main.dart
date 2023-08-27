@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
-import 'pageOptions.dart';
+// Import the Sites for Each Topic
+import 'mengen.dart';
+import 'funktionen.dart';
 
+// Latex Support
 import 'package:flutter_math_fork/ast.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
 import 'package:flutter_math_fork/tex.dart';
+
+Color themeColor = Color.fromARGB(255, 194, 235, 212);
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +25,7 @@ class MyApp extends StatelessWidget {
       title: 'Diskrete Strukturen',
       theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 194, 235, 212),
+            seedColor: themeColor,
           ),
           useMaterial3: true,
           fontFamily: 'Monserrat'),
@@ -51,7 +56,20 @@ class _MyHomePageState extends State<MyHomePage> {
   // This is where the different Pages will be stored
   static List<Widget> pageOptions = <Widget>[
     Mengen(),
+    Funktionen(),
   ];
+
+  // Custom DrawerTile
+  Widget DrawerTile(String text, int index) {
+    return ListTile(
+      title: Text(text),
+      selected: selectedIndex == 0,
+      onTap: () {
+        onItemTapped(index);
+        Navigator.pop(context);
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,22 +78,25 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
-        child: pageOptions[selectedIndex],
-      ),
+      body: SingleChildScrollView(child: pageOptions[selectedIndex]),
+      
+      
+
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(child: Text('Themen')),
-            ListTile(
-              title: const Text('Mengen'),
-              selected: selectedIndex == 0,
-              onTap: () {
-                onItemTapped(0);
-                Navigator.pop(context);
-              },
+            DrawerHeader(
+              child: Text(
+                'Themen',
+                style: TextStyle(fontSize: 30),
+              ),
+              decoration: BoxDecoration(
+                color: themeColor,
+              ),
             ),
+            DrawerTile('Mengen', 0),
+            DrawerTile('Funktionen', 1),
           ],
         ),
       ),
