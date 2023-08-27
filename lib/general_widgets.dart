@@ -37,7 +37,7 @@ Widget Subheader(String text) {
 
 Widget PText(String text) {
   return Padding(
-    padding: EdgeInsets.only(left : 5, right: 5, bottom: 5),
+    padding: EdgeInsets.only(left: 5, right: 5, bottom: 5),
     child: Text(
       text,
       softWrap: true,
@@ -46,12 +46,43 @@ Widget PText(String text) {
   );
 }
 
+Widget PSmallText(String text) {
+  return Padding(
+    padding: EdgeInsets.only(left: 10, right: 10, bottom: 5),
+    child: new Text(
+      text,
+      softWrap: true,
+      style: TextStyle(fontSize: 12),
+    ),
+  );
+}
+
 Widget PMath(String text) {
   return Padding(
-    padding: EdgeInsets.only(left : 10, bottom: 10),
+    padding: EdgeInsets.only(left: 10, bottom: 10),
     child: Math.tex(
       text,
-      textStyle: TextStyle(fontSize: 18,),
+      textStyle: TextStyle(
+        fontSize: 18,
+      ),
     ),
+  );
+}
+
+Widget TextRow(String text) {
+  return Row(
+    children: [PText(text)],
+  );
+}
+
+Widget MathRow(String text) {
+  return Row(
+    children: [PMath(text)],
+  );
+}
+
+Widget SmallTextRow(String text) {
+  return Row(
+    children: [PSmallText(text)],
   );
 }
