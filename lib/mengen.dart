@@ -233,6 +233,19 @@ Widget Mengen() {
       Row(children: [
         PMath(r'(a,b) = (c,d) \Leftrightarrow a=c \text{ und } b=d')
       ]),
+      Subheader('Mächtigkeit'),
+      Row(
+        children: [PText('Notation : |A|')],
+      ),
+      Row(
+        children: [PMath(r'|\mathbb{N}| = |\mathbb{Z}|')],
+      ),
+      Row(
+        children: [PMath(r'|\mathbb{N} \times \mathbb{N} | = |\mathbb{N}|')],
+      ),
+      Row(
+        children: [PMath(r'|A| \neq |\mathcal{P}(A)|')],
+      ),
       Subheader('Produktmenge'),
       SizedBox(
         width: double.infinity,
@@ -289,6 +302,10 @@ Widget Mengen() {
           PMath(r'n! = (n-1)! * n'),
         ],
       ),
+      Subheader('Satz von Cantor'),
+      Row(
+        children: [PMath(r'\forall A \text{ gilt: } |A| < |\mathcal{P}(A)|')],
+      )
     ],
   );
 }
